@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mythologyy.netlify.app/sitemap.xml
