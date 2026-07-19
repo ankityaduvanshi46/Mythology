@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lord Krishna - Divine Avatar</title>
     <link rel="stylesheet" href="Z-CSS/home.css">
     <style>
@@ -11,21 +11,17 @@
             position: relative;
             margin: auto;
         }
-
         .slide {
             display: none;
         }
-
         .slide.active {
             display: block;
         }
-
         .slide img {
             width: 100%;
             height: auto;
             cursor: pointer;
         }
-
         .dot {
             display: inline-block;
             width: 12px;
@@ -36,11 +32,9 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-
         .dot.active {
             background: #717171;
         }
-
         .fullscreen-overlay {
             display: none;
             position: fixed;
@@ -53,13 +47,11 @@
             justify-content: center;
             align-items: center;
         }
-
         .fullscreen-overlay img {
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
         }
-
         .close-button {
             position: absolute;
             top: 20px;
@@ -68,231 +60,144 @@
             font-size: 30px;
             cursor: pointer;
         }
-
         img {
             cursor: pointer;
+            max-width: 100%;
+            height: auto;
         }
-
-        nav {
-            background: #2e5a9e;
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .image-caption {
+            text-align: left;
+            font-style: italic;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+        .shloka {
+            font-style: italic;
+            background-color: #f9f9f9;
             padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            border-bottom: 3px solid #ffd700;
-            text-align: center;
+            border-left: 4px solid #1a3c6b;
+            margin: 1rem 0;
         }
-
+        .shloka p {
+            margin: 0.5rem 0;
+        }
+        .sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .floating-feather {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('peacock-feather.png') no-repeat center / 30px;
+            opacity: 0.3;
+            animation: floatFeather 15s linear infinite;
+        }
+        @keyframes floatFeather {
+            0% { transform: translate(0, 0); opacity: 0.3; }
+            50% { opacity: 0.5; }
+            100% { transform: translate(100vw, 100vh); opacity: 0; }
+        }
         .hamburger {
             display: none;
         }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 0.5rem;
+        .mobile-menu {
+            display: none;
         }
-
-        .nav-links li {
-            display: inline-block;
-            margin: 0 0.5rem;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s, background 0.3s;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-            background: rgba(255, 215, 0, 0.1);
-            text-shadow: 0 0 5px rgba(255,215,0,0.5);
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 2rem;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            margin-top: 1rem;
-            border-radius: 8px;
-        }
-
-        section {
-            opacity: 0;
-            transform: translateX(100px);
-            animation: slideIn 0.5s ease-out forwards;
-        }
-
-        #home {
-            text-align: center;
-            background: url('peacock-feather.png') repeat-x bottom left / 50px;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid #1a3c6b;
-        }
-
-        @media screen and (max-width: 768px) {
-            /* Show hamburger on mobile */
-            .hamburger {
+        @media (max-width: 768px) {
+            .floating-feather {
+                display: none;
+            }
+            .container {
+                width: 92%;
+                padding: 10px;
+            }
+            nav {
+                position: relative;
                 display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                flex-wrap: nowrap;
+            }
+            nav .nav-desktop {
+                display: none;
+            }
+            .hamburger {
+                display: flex !important;
                 flex-direction: column;
                 cursor: pointer;
                 background: none;
                 border: none;
                 padding: 5px;
                 position: absolute;
-                right: 20px;
+                right: 15px;
                 top: 50%;
                 transform: translateY(-50%);
                 z-index: 10;
             }
-
             .hamburger span {
                 display: block;
-                width: 28px;
-                height: 3px;
+                width: 30px;
+                height: 4px;
                 background: white;
                 margin: 4px 0;
                 transition: all 0.3s ease;
-                border-radius: 2px;
+                border-radius: 3px;
             }
-
-            nav {
-                position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 1rem;
-                text-align: center;
-            }
-
-            .nav-links {
+            .mobile-menu {
                 display: none;
                 flex-direction: column;
                 width: 100%;
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background: #2e5a9e;
-                padding: 1rem 0;
-                margin: 0;
-                list-style: none;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                border-top: 2px solid #ffd700;
+                background: linear-gradient(to right, #8a2be2, #ff6f61);
+                padding: 0.5rem 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
                 z-index: 999;
-                gap: 0;
+                border-top: 2px solid #ffd700;
             }
-
-            .nav-links.active {
+            .mobile-menu.active {
                 display: flex;
             }
-
-            .nav-links li {
-                display: block;
-                margin: 0.3rem 0;
+            .mobile-menu a {
+                color: #fff;
+                padding: 12px 16px;
+                text-decoration: none;
+                font-family: Georgia, serif;
+                font-size: 1rem;
                 text-align: center;
-                padding: 0.3rem 0;
-                width: 100%;
-            }
-
-            .nav-links a {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 display: block;
                 width: 100%;
+                transition: background 0.3s;
             }
-
-            .container {
-                width: 92%;
-                padding: 1rem;
+            .mobile-menu a:hover {
+                background: rgba(255, 215, 0, 0.1);
+                color: #ffd700;
             }
-
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            /* Hide floating feathers on mobile */
-            .floating-feather {
-                display: none;
+            .mobile-menu a:last-child {
+                border-bottom: none;
             }
         }
-
-        @media screen and (max-width: 480px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-            
+        @media (max-width: 480px) {
             .container {
                 width: 95%;
-                padding: 0.8rem;
+                padding: 8px;
             }
-
-            .nav-links a {
+            .mobile-menu a {
                 font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
+                padding: 10px 14px;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideFeather {
-            from { background-position: 0 0; }
-            to { background-position: 100px 0; }
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 5px rgba(255,215,0,0.5); }
-            to { box-shadow: 0 0 15px rgba(255,215,0,0.8); }
-        }
-
-        @keyframes featherPop {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
-        }
-
-        @keyframes floatFeather {
-            0% { transform: translate(0, 0); opacity: 0.3; }
-            50% { opacity: 0.5; }
-            100% { transform: translate(100vw, 100vh); opacity: 0; }
-        }
-
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-10px); }
-            40%, 80% { transform: translateX(10px); }
         }
     </style>
 </head>
@@ -300,39 +205,42 @@
     <div class="floating-feather" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
     <div class="floating-feather" style="top: 20%; left: 80%; animation-delay: 5s;"></div>
     <div class="floating-feather" style="top: 50%; left: 20%; animation-delay: 10s;"></div>
-    
     <header>
         <div class="feather-overlay"></div>
         <h1>Lord Krishna</h1>
         <p>The Divine Avatar of Vishnu - The Eternal Guide of Dharma</p>
         <a href="#life" class="cta-button">Explore Krishna's Divine Journey</a>
     </header>
-    
     <nav>
+        <div class="nav-desktop">
+            <a href="#home">Home</a>
+            <a href="#life">Life</a>
+            <a href="#teachings">Teachings</a>
+            <a href="#legacy">Legacy</a>
+            <a href="#festivals">Festivals</a>
+            <a href="04D-Mhb.html">Mahabharata</a>
+        </div>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#life">Life</a></li>
-            <li><a href="#teachings">Teachings</a></li>
-            <li><a href="#legacy">Legacy</a></li>
-            <li><a href="#festivals">Festivals</a></li>
-            <li><a href="04D-Mhb.html">Mahabharata</a></li>
-        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#life">Life</a>
+            <a href="#teachings">Teachings</a>
+            <a href="#legacy">Legacy</a>
+            <a href="#festivals">Festivals</a>
+            <a href="04D-Mhb.html">Mahabharata</a>
+        </div>
     </nav>
-    
     <div class="container">
         <section id="home">
             <h2>Welcome to Krishna's Divine World</h2>
             <p>Lord Krishna, the eighth avatar of Lord Vishnu, is revered as the embodiment of love, wisdom, and righteousness. Known for his enchanting flute, peacock feather crown, and profound teachings in the <i>Bhagavad Gita</i>, Krishna's life inspires devotion and spiritual awakening. From his playful childhood in Vrindavan to his role as a divine strategist in the <i>Mahabharata</i>, his legacy resonates across time.</p>
         </section>
     </div>
-    
     <div class="slideshow-container">
-        <!-- Slide images -->
         <div class="slide active">
             <img src="IMAGE/krishna.jpg" alt="Slide 1">
         </div>
@@ -342,20 +250,16 @@
         <div class="slide">
             <img src="IMAGE/krishna3.jpg" alt="Slide 3">
         </div>
-        <!-- Navigation dots -->
         <div class="slideshow-dots">
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </div>
-    
-    <!-- Full-screen overlay container -->
     <div class="fullscreen-overlay" id="fullscreenOverlay">
         <span class="close-button" onclick="closeFullscreen()">&times;</span>
         <img id="fullscreenImage" src="" alt="Full-screen image">
     </div>
-    
     <div class="container">
         <section id="life">
             <h2>Life and Exploits</h2>
@@ -363,14 +267,13 @@
             <p>Born around 3228 BCE in Mathura to Devaki and Vasudeva, Krishna's birth was marked by divine prophecy. His uncle, King Kamsa, fearing a prediction that Devaki's eighth child would kill him, imprisoned the couple. Krishna was miraculously transported to Gokul, where he was raised by foster parents Yashoda and Nanda among cowherds. His childhood in Vrindavan is legendary, filled with playful antics like stealing butter, dancing with the gopis, and slaying demons sent by Kamsa, such as Putana and Trinavarta.</p>
             <h3>Miracles and Deeds</h3>
             <p>Krishna's divine nature shone through miracles like lifting Govardhan Hill to protect villagers from Indra's wrath and subduing the serpent Kaliya. His bond with Radha and the gopis symbolizes divine love, celebrated in poetry and art.</p>
-            <img src="IMAGE/Gemini_Generated_Image_hqbbq3hqbbq3hqbb.png" width="70%" height="35%">
+            <img src="IMAGE/Gemini_Generated_Image_hqbbq3hqbbq3hqbb.png" alt="Krishna lifting Govardhan Hill">
             <p class="image-caption">Krishna lifting Govardhan Hill to protect villagers</p>
             <h3>Adulthood and Dwaraka</h3>
             <p>As a young adult, Krishna returned to Mathura, defeated Kamsa, and restored his parents' freedom. He later established the city of Dwaraka (modern-day Gujarat), where he ruled as a wise and just king. He married Rukmini, Satyabhama, and others, forming alliances and strengthening his kingdom.</p>
             <h3>Role in the Mahabharata</h3>
             <p>Krishna played a pivotal role in the <i>Mahabharata</i> as a friend and advisor to the Pandavas. As Arjuna's charioteer, he delivered the <i>Bhagavad Gita</i> on the Kurukshetra battlefield, guiding Arjuna through moral dilemmas. His diplomatic efforts, like attempting peace with the Kauravas, and strategic guidance ensured the Pandavas' victory.</p>
         </section>
-        
         <section id="teachings">
             <h2>Teachings</h2>
             <p>Krishna's teachings, primarily in the <i>Bhagavad Gita</i>, are a cornerstone of Hindu philosophy. Addressing Arjuna's doubts, he outlined paths to spiritual liberation:</p>
@@ -405,17 +308,15 @@
                 <p><b>Significance</b>: Krishna lists truthfulness (satyam) as a divine trait, essential for spiritual growth and living in harmony with dharma.</p>
             </div>
         </section>
-        
         <section id="legacy">
             <h2>Legacy</h2>
             <h3>Cultural Impact</h3>
             <p>Krishna's life has profoundly shaped Indian culture. His stories inspire art forms like Kathak dance, Bhakti poetry by saints like Mirabai, and music through bhajans. Temples in Vrindavan, Mathura, and Dwaraka (Dwarakadhish Temple) are major pilgrimage sites.</p>
-            <img src="IMAGE/Gemini_Generated_Image_g3nj6og3nj6og3nj.png" width="70%" height="35%">
+            <img src="IMAGE/Gemini_Generated_Image_g3nj6og3nj6og3nj.png" alt="Dwarakadhish Temple">
             <p class="image-caption">Dwarakadhish Temple dedicated to Lord Krishna</p>
             <h3>Global Influence</h3>
             <p>The Bhakti movement, inspired by Krishna, spread devotion across India and beyond, notably through ISKCON (International Society for Krishna Consciousness). His teachings influence philosophy, literature, and spiritual practices worldwide, emphasizing universal love and righteousness.</p>
         </section>
-        
         <section id="festivals">
             <h2>Festivals</h2>
             <p>Krishna's legacy is celebrated in vibrant festivals that honor his divine life and teachings:</p>
@@ -426,11 +327,9 @@
             </ul>
         </section>
     </div>
-    
     <footer>
-        <p>&copy; 2026 Lord Krishna - Divine Avatar. All rights reserved.</p>
+        <p>&copy; 2026 Lord Krishna - Divine Avatar</p>
     </footer>
-    
     <script>
         let slideIndex = 1;
         showSlides(slideIndex);
@@ -454,11 +353,11 @@
             dots[slideIndex-1].classList.add("active");
         }
 
-        // Auto-slide every 5 seconds
         setInterval(() => {
             slideIndex++;
             showSlides(slideIndex);
         }, 5000);
+
         const images = document.querySelectorAll("img");
         const overlay = document.getElementById("fullscreenOverlay");
         const fullscreenImage = document.getElementById("fullscreenImage");
@@ -487,29 +386,28 @@
         });
 
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            var menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
         }
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                const navLinks = document.getElementById('navLinks');
-                navLinks.classList.remove('active');
+        document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.remove('active');
             });
         });
 
         document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
+            var nav = document.querySelector('nav');
+            var menu = document.getElementById('mobileMenu');
+            if (!nav.contains(event.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
             }
         });
+
         window.addEventListener('resize', function() {
-            const navLinks = document.getElementById('navLinks');
+            var menu = document.getElementById('mobileMenu');
             if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
+                menu.classList.remove('active');
             }
         });
     </script>
