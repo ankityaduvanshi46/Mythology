@@ -2,34 +2,207 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mahabharata and the Pandavas</title>
     <link rel="stylesheet" href="Z-CSS/mhb.css">
+    <style>
+        /* Fix for banner image */
+        .banner-container {
+            text-align: center;
+            padding: 10px 0;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .banner-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        /* Fix for container */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            overflow: hidden;
+        }
+        /* Fix for body */
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        /* Fix for images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Hamburger menu fix */
+        nav {
+            background-color: #8b4513;
+            overflow: visible;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            flex-wrap: wrap;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: white;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        .nav-links li {
+            display: inline-block;
+            margin: 0;
+        }
+        .nav-links a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        .nav-links a:hover {
+            background-color: #ffcc99;
+            color: #8b4513;
+            transform: scale(1.1);
+        }
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                justify-content: flex-start;
+                padding: 0.8rem 1rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #8b4513;
+                padding: 0.5rem 0;
+                margin: 0;
+                list-style: none;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+                z-index: 999;
+                border-top: 2px solid #ffcc99;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                display: block;
+                margin: 0;
+                width: 100%;
+            }
+            .nav-links a {
+                padding: 12px 16px;
+                width: 100%;
+                text-align: center;
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 15px;
+            }
+            .nav-links a:hover {
+                background-color: #ffcc99;
+                color: #8b4513;
+                transform: none;
+            }
+            .container {
+                width: 92%;
+                padding: 10px;
+            }
+            .banner-container img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 8px;
+            }
+            .nav-links a {
+                font-size: 14px;
+                padding: 10px 14px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Mahabharata and the Pandavas</h1>
         <p>Explore the Epic Saga and Its Legendary Heroes</p>
     </header>
+    
     <nav>
-        <a href="#mahabharata">Mahabharata Overview</a>
-        <a href="#pandavas">The Pandavas</a>
-        <a href="#characters">Key Characters</a>
-        <a href="#shlokas">Shlokas</a>
-        <a href="#quiz">Quiz</a>
-    </nav><br>
-    <center><img src="IMAGE/Gemini_Generated_Image_fy1zpxfy1zpxfy1z.png" width="1000" height="500"></center>
-    <!-- Full-screen image modal -->
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#mahabharata">Mahabharata Overview</a></li>
+            <li><a href="#pandavas">The Pandavas</a></li>
+            <li><a href="#characters">Key Characters</a></li>
+            <li><a href="#shlokas">Shlokas</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+    
+    <div class="banner-container">
+        <img src="IMAGE/Gemini_Generated_Image_fy1zpxfy1zpxfy1z.png" alt="Mahabharata Banner">
+    </div>
+
     <div class="image-modal" id="imageModal">
         <span class="close-btn" onclick="closeFullScreen()">&times;</span>
         <img id="fullScreenImage" src="" alt="Full-screen image">
     </div>
+
     <div class="container">
         <div class="section" id="mahabharata">
             <h2>Mahabharata Overview</h2>
             <p>The Mahabharata is one of the two major Sanskrit epics of ancient India, alongside the Ramayana. Attributed to the sage Vyasa, it is a monumental narrative encompassing stories, teachings, and philosophical discourses. The central plot revolves around the conflict between the Pandavas and the Kauravas, culminating in the Kurukshetra War.</p>
             <p>Beyond a tale of war, the Mahabharata explores dharma (duty), righteousness, and human emotions. It includes the Bhagavad Gita, a dialogue between Lord Krishna and Arjuna addressing moral dilemmas. Spanning over 100,000 verses across 18 books (parvas), it offers insights into ancient Indian culture, politics, and spirituality.</p>
         </div>
+
         <div class="section" id="pandavas">
             <h2>The Five Pandavas</h2>
             <p>The Pandavas, sons of King Pandu, are central to the Mahabharata. Known for their virtues and skills, they played pivotal roles in the Kurukshetra War. Click on each name to learn more.</p>
@@ -46,7 +219,7 @@
                         <li><strong>Spear Mastery:</strong> Proficient with the spear, though he relied on strategy.</li>
                         <li><strong>Gambling Weakness:</strong> Lost the kingdom in a rigged dice game, leading to exile.</li>
                     </ul>
-                    <p>Yudhishthira’s adherence to dharma guided the Pandavas through ethical challenges.</p>
+                    <p>Yudhishthira's adherence to dharma guided the Pandavas through ethical challenges.</p>
                 </div>
             </div>
             <div class="pandava">
@@ -60,9 +233,9 @@
                         <li><strong>Immense Strength:</strong> Superhuman strength, capable of wielding massive maces.</li>
                         <li><strong>Mace Combat:</strong> Defeated warriors like Duryodhana with his mace skills.</li>
                         <li><strong>Loyalty:</strong> Fiercely protective of his brothers and Draupadi.</li>
-                        <li><strong>Culinary Skills:</strong> An excellent cook during the Pandavas’ exile.</li>
+                        <li><strong>Culinary Skills:</strong> An excellent cook during the Pandavas' exile.</li>
                     </ul>
-                    <p>Bhima’s strength and courage made him a formidable warrior in the Kurukshetra War.</p>
+                    <p>Bhima's strength and courage made him a formidable warrior in the Kurukshetra War.</p>
                 </div>
             </div>
             <div class="pandava">
@@ -78,7 +251,7 @@
                         <li><strong>Discipline:</strong> Favored by Krishna for his focus and dedication.</li>
                         <li><strong>Arts:</strong> Skilled in music, dance, and poetry.</li>
                     </ul>
-                    <p>Arjuna’s role in the war and the Bhagavad Gita underscores his significance.</p>
+                    <p>Arjuna's role in the war and the Bhagavad Gita underscores his significance.</p>
                 </div>
             </div>
             <div class="pandava">
@@ -94,7 +267,7 @@
                         <li><strong>Beauty:</strong> Renowned for his charm and good looks.</li>
                         <li><strong>Diplomacy:</strong> Gentle and diplomatic, balancing his brothers.</li>
                     </ul>
-                    <p>Nakula’s grace and skills complemented the Pandavas’ strength.</p>
+                    <p>Nakula's grace and skills complemented the Pandavas' strength.</p>
                 </div>
             </div>
             <div class="pandava">
@@ -110,10 +283,11 @@
                         <li><strong>Swordsmanship:</strong> Proficient with the sword.</li>
                         <li><strong>Cattle Management:</strong> Expert in cattle rearing during exile.</li>
                     </ul>
-                    <p>Sahadeva’s wisdom made him a key advisor to his brothers.</p>
+                    <p>Sahadeva's wisdom made him a key advisor to his brothers.</p>
                 </div>
             </div>
         </div>
+
         <div class="section" id="characters">
             <h2>Key Characters of the Mahabharata</h2>
             <p>Besides the Pandavas, several other characters play pivotal roles in the Mahabharata, shaping its narrative and philosophical depth. Click on each name to learn more.</p>
@@ -122,7 +296,7 @@
                 <div id="krishna" class="character-content">
                     <img src="IMAGE/krish.jpg" alt="Krishna">
                     <p><strong>Role:</strong> Divine Guide and Strategist</p>
-                    <p><strong>Description:</strong> Lord Krishna, an incarnation of Vishnu, is Arjuna’s charioteer and spiritual guide. His counsel in the Bhagavad Gita helps Arjuna resolve his moral dilemmas before the Kurukshetra War. Krishna’s wisdom, diplomacy, and divine interventions ensure the Pandavas’ victory.</p>
+                    <p><strong>Description:</strong> Lord Krishna, an incarnation of Vishnu, is Arjuna's charioteer and spiritual guide. His counsel in the Bhagavad Gita helps Arjuna resolve his moral dilemmas before the Kurukshetra War. Krishna's wisdom, diplomacy, and divine interventions ensure the Pandavas' victory.</p>
                     <p><strong>Key Contributions:</strong></p>
                     <ul>
                         <li>Delivers the Bhagavad Gita, teaching dharma and detachment.</li>
@@ -140,8 +314,8 @@
                     <p><strong>Key Contributions:</strong></p>
                     <ul>
                         <li>Unites the Pandavas through her marriage to all five.</li>
-                        <li>Her insult by the Kauravas sparks the Pandavas’ resolve for justice.</li>
-                        <li>Provides moral support during the Pandavas’ exile.</li>
+                        <li>Her insult by the Kauravas sparks the Pandavas' resolve for justice.</li>
+                        <li>Provides moral support during the Pandavas' exile.</li>
                     </ul>
                 </div>
             </div>
@@ -153,7 +327,7 @@
                     <p><strong>Description:</strong> Duryodhana, the eldest Kaurava, is the primary antagonist whose ambition and envy drive the conflict with the Pandavas. His refusal to share the kingdom and orchestration of the dice game lead to the Kurukshetra War.</p>
                     <p><strong>Key Contributions:</strong></p>
                     <ul>
-                        <li>Instigates the game of dice, leading to the Pandavas’ exile.</li>
+                        <li>Instigates the game of dice, leading to the Pandavas' exile.</li>
                         <li>Leads the Kaurava army in the Kurukshetra War.</li>
                         <li>His rivalry with Bhima culminates in a fatal mace duel.</li>
                     </ul>
@@ -178,12 +352,12 @@
                 <div id="karna" class="character-content">
                     <img src="IMAGE/karna.png" alt="Karna">
                     <p><strong>Role:</strong> Warrior and Ally of the Kauravas</p>
-                    <p><strong>Description:</strong> Karna, the secret son of Kunti and the Sun God Surya, is a tragic hero and skilled archer rivaling Arjuna. Raised as a low-caste charioteer’s son, he aligns with Duryodhana out of loyalty and fights for the Kauravas despite knowing his true heritage.</p>
+                    <p><strong>Description:</strong> Karna, the secret son of Kunti and the Sun God Surya, is a tragic hero and skilled archer rivaling Arjuna. Raised as a low-caste charioteer's son, he aligns with Duryodhana out of loyalty and fights for the Kauravas despite knowing his true heritage.</p>
                     <p><strong>Key Contributions:</strong></p>
                     <ul>
                         <li>Renowned for his archery skills and generosity.</li>
                         <li>Plays a major role in the Kurukshetra War, challenging Arjuna.</li>
-                        <li>His tragic death, due to curses and Krishna’s strategies, is a pivotal moment.</li>
+                        <li>His tragic death, due to curses and Krishna's strategies, is a pivotal moment.</li>
                     </ul>
                 </div>
             </div>
@@ -192,25 +366,26 @@
                 <div id="shakuni" class="character-content">
                     <img src="IMAGE/sakuni.jpg" alt="Shakuni">
                     <p><strong>Role:</strong> Manipulator and Strategist</p>
-                    <p><strong>Description:</strong> Shakuni, the prince of Gandhara and Duryodhana’s maternal uncle, is a cunning strategist who fuels the rivalry between the Kauravas and Pandavas. His expertise in dice and manipulative schemes drive key conflicts in the epic.</p>
+                    <p><strong>Description:</strong> Shakuni, the prince of Gandhara and Duryodhana's maternal uncle, is a cunning strategist who fuels the rivalry between the Kauravas and Pandavas. His expertise in dice and manipulative schemes drive key conflicts in the epic.</p>
                     <p><strong>Key Contributions:</strong></p>
                     <ul>
-                        <li>Orchestrates the rigged dice game, leading to the Pandavas’ exile.</li>
+                        <li>Orchestrates the rigged dice game, leading to the Pandavas' exile.</li>
                         <li>Advises Duryodhana, escalating tensions with the Pandavas.</li>
                         <li>Killed by Sahadeva in the Kurukshetra War.</li>
                     </ul>
                 </div>
             </div>
         </div>
+
         <div class="section" id="shlokas">
             <h2>Notable Shlokas from the Mahabharata</h2>
             <p>The Mahabharata, particularly through the Bhagavad Gita, contains profound shlokas (verses) that offer spiritual and philosophical insights. Below are three significant shlokas with their Sanskrit text, transliteration, translation, and meaning.</p>
             <div class="shloka">
                 <h3>Shloka 1: Bhagavad Gita 2.47</h3>
                 <p class="sanskrit">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
-                <p><strong>Transliteration:</strong> Karmany evadhikaras te ma phaleshu kadachana,<br>Ma karma-phala-hetur bhur ma te sango ’stv akarmani.</p>
+                <p><strong>Transliteration:</strong> Karmany evadhikaras te ma phaleshu kadachana,<br>Ma karma-phala-hetur bhur ma te sango 'stv akarmani.</p>
                 <p><strong>Translation:</strong> You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, nor be attached to inaction.</p>
-                <p><strong>Meaning:</strong> Spoken by Lord Krishna to Arjuna, this shloka emphasizes performing one’s duty without attachment to outcomes. It teaches detachment and focus on action, a core principle of Karma Yoga, encouraging Arjuna to fight in the war without worrying about victory or defeat.</p>
+                <p><strong>Meaning:</strong> Spoken by Lord Krishna to Arjuna, this shloka emphasizes performing one's duty without attachment to outcomes. It teaches detachment and focus on action, a core principle of Karma Yoga, encouraging Arjuna to fight in the war without worrying about victory or defeat.</p>
             </div>
             <div class="shloka">
                 <h3>Shloka 2: Bhagavad Gita 3.16</h3>
@@ -224,9 +399,10 @@
                 <p class="sanskrit">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।<br>अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥</p>
                 <p><strong>Transliteration:</strong> Yada yada hi dharmasya glanir bhavati bharata,<br>Abhyutthanam adharmasya tadatmanam srijamy aham.</p>
                 <p><strong>Translation:</strong> Whenever there is a decline in righteousness and an increase in unrighteousness, O Bharata (Arjuna), at that time I manifest Myself.</p>
-                <p><strong>Meaning:</strong> Krishna assures Arjuna that divine intervention occurs whenever dharma declines. This shloka highlights the concept of divine avatars restoring balance, with Krishna’s role in the Mahabharata as an example.</p>
+                <p><strong>Meaning:</strong> Krishna assures Arjuna that divine intervention occurs whenever dharma declines. This shloka highlights the concept of divine avatars restoring balance, with Krishna's role in the Mahabharata as an example.</p>
             </div>
         </div>
+
         <div class="section" id="quiz">
             <h2>Test Your Mahabharata Knowledge</h2>
             <div class="quiz">
@@ -237,9 +413,11 @@
             </div>
         </div>
     </div>
+
     <footer>
-        <p>&copy; 2026 Mahabharata and Pandavas. All rights reserved.</p>
+        <p>&copy; 2026 Mahabharata and Pandavas</p>
     </footer>
+
     <script>
         function toggleContent(id) {
             const content = document.getElementById(id);
@@ -252,14 +430,35 @@
             document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
         }
 
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 smoothScroll(this.getAttribute('href'));
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
             });
         });
 
-        // Full-screen image functionality
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            const navLinks = document.getElementById('navLinks');
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+            }
+        });
+
         const images = document.querySelectorAll('img');
         const modal = document.getElementById('imageModal');
         const fullScreenImage = document.getElementById('fullScreenImage');
@@ -275,14 +474,12 @@
             modal.style.display = 'none';
         }
 
-        // Close modal when clicking outside the image
         modal.addEventListener('click', function(event) {
             if (event.target === modal) {
                 closeFullScreen();
             }
         });
 
-        // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeFullScreen();
@@ -314,7 +511,7 @@
             document.getElementById('quiz-question').textContent = q.question;
             const optionsDiv = document.getElementById('quiz-options');
             optionsDiv.innerHTML = '';
-            q.options.forEach((option, index) => {
+            q.options.forEach((option) => {
                 const button = document.createElement('button');
                 button.textContent = option;
                 button.onclick = () => selectOption(option);
@@ -329,7 +526,7 @@
             if (selected === q.correct) {
                 result.textContent = 'Correct!';
             } else {
-                result.textContent = `Wrong! The correct answer is ${q.correct}.`;
+                result.textContent = 'Wrong! The correct answer is ' + q.correct + '.';
             }
             setTimeout(() => {
                 currentQuestion = (currentQuestion + 1) % quizQuestions.length;
@@ -349,7 +546,6 @@
             }
         });
 
-        // Scroll-based section animation
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('.section');
             const observer = new IntersectionObserver((entries) => {
@@ -359,9 +555,7 @@
                     }
                 });
             }, { threshold: 0.1 });
-
             sections.forEach(section => observer.observe(section));
-
             loadQuiz();
         });
     </script>
